@@ -29,13 +29,21 @@ module.exports = {
   		},
   		{
   			test: /\.(png|jpg|gif)$/,
-  			use: [{
-  				loader: 'url-loader',
-  				options: {
-  					limit: 1000,
-  					outputPath: 'imgs/',
-  				},
-    		}],
+  			use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 1000,
+              outputPath: 'imgs/',
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+            },
+          },
+        ],
   		},
   	],
   },
